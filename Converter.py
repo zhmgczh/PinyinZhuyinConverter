@@ -48,7 +48,7 @@ class Converter:
                 particles.add(article[i:index])
                 i=index
             i+=1
-        return sorted(list(particles),key=len)
+        return reversed(sorted(list(particles),key=len))
     def extract_all_zhuyin(self,article:str)->list:
         particles=set()
         i=0
@@ -60,7 +60,7 @@ class Converter:
                 particles.add(article[i:index])
                 i=index
             i+=1
-        return sorted(list(particles),key=len)
+        return reversed(sorted(list(particles),key=len))
     def normalize_pinyin(self,pinyin:str)->str:
         temp=''
         for i in range(len(pinyin)):
