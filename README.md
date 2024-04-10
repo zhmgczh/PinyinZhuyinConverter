@@ -38,7 +38,7 @@ converter.convert_zhuyin('ㄔㄨㄢㄕㄤˋㄌㄩˋㄆㄧˊㄠˇㄌㄧㄡˊㄌ�
 
 ## 不規範的注音文的轉換
 
-注意到上面傳入的注音文中輕聲調號「˙」位於音節左側（即「˙ㄉㄜ」），但若使用位於音節右側的不規範寫法（即「ㄉㄜ˙」）則需將函式`convert_zhuyin`的irregular參數設為`True`，如：
+注意到上面傳入的注音文中輕聲調號「˙」位於音節左側（即「˙ㄉㄜ」），但若使用位於音節右側的不規範寫法（即「ㄉㄜ˙」）則需將函式`convert_zhuyin`的`irregular`參數設為`True`，如：
 
 ```{python}
 converter.convert_zhuyin('ㄔㄨㄢㄕㄤˋㄌㄩˋㄆㄧˊㄠˇㄌㄧㄡˊㄌㄧˋㄉㄜ˙ㄔㄤˋㄕㄢㄍㄜ',irregular=True)
