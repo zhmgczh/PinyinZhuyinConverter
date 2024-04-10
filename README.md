@@ -98,7 +98,7 @@ converter.convert_zhuyin('ㄐㄩ ㄢㄙ ㄨㄟˊ',pinyin_split='|',zhuyin_split=
 
 ```{python}
 converter.convert_pinyin('ansel')
-converter.convert_zhuyin('ansel')
+converter.convert_zhuyin('ㄢㄙㄜㄌ')
 ```
 
 以上兩行代碼返回值均為：

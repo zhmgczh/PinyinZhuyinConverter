@@ -257,7 +257,7 @@ def main():
     print(converter.convert_zhuyin('ㄐㄩ ㄢㄙ ㄨㄟˊ'))
     print(converter.convert_zhuyin('ㄐㄩ ㄢㄙ ㄨㄟˊ',pinyin_split='|',zhuyin_split='|'))
     print(converter.convert_pinyin('ansel'))
-    print(converter.convert_zhuyin('ansel'))
+    print(converter.convert_zhuyin('ㄢㄙㄜㄌ'))
     print(converter.extract_all_pinyin('''《大陸居民臺灣正體字講義》一簡多繁辨析之「裊、嬝、嫋、褭」→「袅」
 辨音：「裊、嬝、嫋、褭」音niǎo。
 辨意：「裊」是指柔軟美好、搖曳、擺動、繚繞、揮打、揮舞，如「裊裊」（縈迴繚繞的樣子）、「裊裊上升」、「裊裊炊煙」、「青煙裊裊」等。而「嬝」則是指纖細柔美或搖曳（通「裊」），如「嬝娜（niǎonuó）」（姿態柔美的樣子，又稱「嬝嬝娜娜」）、「嬝嬝婷婷」（女子體態輕盈優雅的樣子）、「輕嬝嬝」（纖細婉柔的樣子）等。而「嫋」則是指長弱貌、嬌柔美好、音調悠揚婉轉、搖擺、擺動，如「嫋嫋」（形容輕盈柔弱；形容搖曳不定；音調悠揚不絕；風動的樣子）、「餘音嫋嫋」等。而「褭」則是指以絲帶飾馬、「騕褭（yǎoniǎo）」（古駿馬名，也作「要褭（yāoniǎo）」）、吹拂、柔軟美好（通「裊」、「嫋」），如「娉娉褭褭（pīngpīngniǎoniǎo）」（輕盈柔美的樣子）等。現代語境中區分「裊」、「嬝」、「嫋」和「褭」，只要記住「騕褭」、「娉娉褭褭」必須用「褭」，「餘音嫋嫋」一般用「嫋」，形容女子姿態柔美一般用「嬝」，否則一律用「裊」即可。
