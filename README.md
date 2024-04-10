@@ -94,7 +94,7 @@ converter.convert_zhuyin('ㄐㄩ ㄢㄙ ㄨㄟˊ',pinyin_split='|',zhuyin_split=
 
 ## 非法拼式或注音文
 
-若傳入的拼式或注音文為非法，函式返回「('', '', [], [])」，如：
+若傳入的拼式或注音文為非法，函式返回`('', '', [], [])`，如：
 
 ```{python}
 converter.convert_pinyin('ansel')
