@@ -45,7 +45,7 @@ class Converter:
                 index=i
                 while index<len(article) and article[index] in self.pinyin_characters or "'"==article[i] or ' '==article[i]:
                     index+=1
-                particles.add(article[i:index])
+                particles.add(article[i:index].strip())
                 i=index
             i+=1
         return list(reversed(sorted(list(particles),key=len)))
@@ -57,7 +57,7 @@ class Converter:
                 index=i
                 while index<len(article) and article[index] in self.zhuyin_characters or ' '==article[i]:
                     index+=1
-                particles.add(article[i:index])
+                particles.add(article[i:index].strip())
                 i=index
             i+=1
         return list(reversed(sorted(list(particles),key=len)))
