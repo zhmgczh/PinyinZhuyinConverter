@@ -10,7 +10,7 @@ class Converter:
         self.back_vowels={}
         full_path=os.path.realpath(__file__)
         path,_=os.path.split(full_path)
-        with open(path+'/漢語拼音聲調表.csv',encoding='utf-8') as tones:
+        with open(path+'/漢語拼音聲調表.csv',mode='r',encoding='utf-8') as tones:
             rows=csv.reader(tones)
             for row in rows:
                 self.vowels[row[-1]]=[]
@@ -22,7 +22,7 @@ class Converter:
         self.zhuyin_syllables={}
         full_path=os.path.realpath(__file__)
         path,_=os.path.split(full_path)
-        with open(path+'/音節對照表.csv',encoding='utf-8') as syllables:
+        with open(path+'/音節對照表.csv',mode='r',encoding='utf-8') as syllables:
             rows=list(csv.reader(syllables))
             for i in range(len(rows)//2):
                 for j in range(len(rows[2*i])):
