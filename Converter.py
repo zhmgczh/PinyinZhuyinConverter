@@ -46,6 +46,9 @@ class Converter:
                 while index<len(article) and article[index] in self.pinyin_characters or "'"==article[i] or ' '==article[i]:
                     index+=1
                 particle=article[i:index].strip()
+                while ''!=particle and "'"==particle[-1]:
+                    particle=particle[:-1]
+                    particle=particle.strip()
                 if ''!=particle:
                     particles.add(particle)
                 i=index
