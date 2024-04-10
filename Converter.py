@@ -220,7 +220,7 @@ class Converter:
                     zhuyin_list.append(self.add_tone_to_zhuyin_syllable(self.pinyin_syllables[pure_syllable],tone))
                     pinyin=pinyin[len(pure_syllable):]
         return self.pinyin_list_to_string(pinyin_list,pinyin_split),self.zhuyin_list_to_string(zhuyin_list,zhuyin_split),pinyin_list,zhuyin_list
-    def convert_zhuyin(self,zhuyin:str,pinyin_split="'",zhuyin_split:str=' ')->tuple:
+    def convert_zhuyin(self,zhuyin:str,pinyin_split="'",zhuyin_split:str=' ',irregular=False)->tuple:
         pure,zhuyin=self.normalize_zhuyin(zhuyin)
         syllables=[]
         for paragraph in pure:
@@ -236,10 +236,14 @@ class Converter:
                     left_index=zhuyin.index(pure_syllable)
                     right_index=left_index+len(pure_syllable)-1
                     tone=0
-                    if left_index>0 and zhuyin[left_index-1]==self.zhuyin_tones[4]:
-                        tone=4
-                    elif right_index+1<len(zhuyin) and zhuyin[right_index+1] in self.zhuyin_tones:
-                        tone=self.zhuyin_tones.index(zhuyin[right_index+1])
+                    if irregular:
+                        if right_index+1<len(zhuyin) and zhuyin[right_index+1] in self.zhuyin_tones:
+                            tone=self.zhuyin_tones.index(zhuyin[right_index+1])
+                    else:
+                        if left_index>0 and zhuyin[left_index-1]==self.zhuyin_tones[4]:
+                            tone=4
+                        elif right_index+1<len(zhuyin) and zhuyin[right_index+1] in self.zhuyin_tones[:4]:
+                            tone=self.zhuyin_tones.index(zhuyin[right_index+1])
                     pinyin_list.append(self.add_tone_to_pinyin_syllable(self.zhuyin_syllables[pure_syllable],tone))
                     zhuyin_list.append(self.add_tone_to_zhuyin_syllable(pure_syllable,tone))
                     zhuyin=zhuyin[right_index+1:]
@@ -248,7 +252,9 @@ def main():
     converter=Converter()
     print(converter.convert_pinyin("chuānshànglǜpí'ǎoliúlìdechàngshān'gē"))
     print(converter.convert_zhuyin('ㄔㄨㄢㄕㄤˋㄌㄩˋㄆㄧˊㄠˇㄌㄧㄡˊㄌㄧˋ˙ㄉㄜㄔㄤˋㄕㄢㄍㄜ'))
-    print(converter.convert_zhuyin('ㄔㄨㄢㄕㄤˋㄌㄩˋㄆㄧˊㄠˇㄌㄧㄡˊㄌㄧˋㄉㄜ˙ㄔㄤˋㄕㄢㄍㄜ'))
+    print(converter.convert_zhuyin('ㄔㄨㄢㄕㄤˋㄌㄩˋㄆㄧˊㄠˇㄌㄧㄡˊㄌㄧˋㄉㄜ˙ㄔㄤˋㄕㄢㄍㄜ',irregular=True))
+    print(converter.convert_zhuyin('ㄨㄛˇㄉㄜ˙ㄕ'))
+    print(converter.convert_zhuyin('ㄨㄛˇㄉㄜ˙ㄕ',irregular=True))
     print(converter.convert_pinyin("chuān shàng lǜ pí ǎo liú lì de chàng shān gē"))
     print(converter.convert_zhuyin('ㄔㄨㄢ ㄕㄤˋ ㄌㄩˋ ㄆㄧˊ ㄠˇ ㄌㄧㄡˊ ㄌㄧˋ ˙ㄉㄜ ㄔㄤˋ ㄕㄢ ㄍㄜ'))
     print(converter.convert_pinyin("chuān|shàng|lǜ|pí|ǎo|liú|lì|de|chàng|shān|gē"))
