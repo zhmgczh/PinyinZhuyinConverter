@@ -38,29 +38,29 @@ class Converter:
             for character in syllable:
                 self.zhuyin_characters.add(character)
     def extract_all_pinyin(self,article:str)->list:
-        particles=[]
+        particles=set()
         i=0
         while i<len(article):
             if article[i] in self.pinyin_characters or "'"==article[i]:
                 index=i
                 while index<len(article) and article[index] in self.pinyin_characters or "'"==article[i] or ' '==article[i]:
                     index+=1
-                particles.append(article[i:index])
+                particles.add(article[i:index])
                 i=index
             i+=1
-        return set(particles)
+        return sorted(list(particles),key=len)
     def extract_all_zhuyin(self,article:str)->list:
-        particles=[]
+        particles=set()
         i=0
         while i<len(article):
             if article[i] in self.zhuyin_characters:
                 index=i
                 while index<len(article) and article[index] in self.zhuyin_characters or ' '==article[i]:
                     index+=1
-                particles.append(article[i:index])
+                particles.add(article[i:index])
                 i=index
             i+=1
-        return set(particles)
+        return sorted(list(particles),key=len)
     def normalize_pinyin(self,pinyin:str)->str:
         temp=''
         for i in range(len(pinyin)):
