@@ -43,7 +43,7 @@ class Converter:
         while i<len(article):
             if article[i] in self.pinyin_characters:
                 index=i
-                while index<len(article) and article[index] in self.pinyin_characters or "'"==article[i] or ' '==article[i]:
+                while index<len(article) and article[index] in self.pinyin_characters or "'"==article[index] or ' '==article[index]:
                     index+=1
                 particle=article[i:index].strip()
                 while ''!=particle and "'"==particle[-1]:
