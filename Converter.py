@@ -60,7 +60,7 @@ class Converter:
         while i<len(article):
             if article[i] in self.zhuyin_characters:
                 index=i
-                while index<len(article) and article[index] in self.zhuyin_characters or ' '==article[i]:
+                while index<len(article) and article[index] in self.zhuyin_characters or ' '==article[index]:
                     index+=1
                 particle=article[i:index].strip()
                 if ''!=particle:
