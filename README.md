@@ -10,9 +10,10 @@
 
 注意：使用前必須將「[音節對照表.csv](音節對照表.csv)」和「[漢語拼音聲調表.csv](漢語拼音聲調表.csv)」兩個必要輔助檔案放置到與Converter類所在的Python檔案（即此倉庫中的示例──「[Converter.py](Converter.py)」）相同的目錄下。
 
-初始化Converter類對象：
+載入並初始化Converter類對象：
 
 ```{python}
+from Converter import Converter
 converter = Converter()
 ```
 
